@@ -1,0 +1,6 @@
+fastapi
+pandas
+numpy
+openpyxl
+xlrd
+python-multipart

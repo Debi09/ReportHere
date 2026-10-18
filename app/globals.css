@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #F5F1E6; --ink: #111111; --red: #E6392F; --blue: #1D4ED8;
+  --sun: #FACC15; --concrete: #D1D5DB; --slate: #374151;
+}
+@theme inline {
+  --font-sans: var(--font-grotesk), system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--font-grotesk), system-ui, sans-serif; }
+
+.display { font-weight: 700; text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.9; }
+.panel { background: #fff; border: 3px solid var(--ink); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  border: 3px solid var(--ink); padding: .7rem 1.25rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: -0.01em; cursor: pointer; transition: transform .12s; min-height: 44px;
+}
+.btn:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+.slide-in { animation: slide-in .5s ease-out both; }
+.rise { animation: rise .45s ease-out both; }
+@keyframes slide-in { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.pulse-bar { animation: bar 1.2s ease-in-out infinite; }
+@keyframes bar { 0%,100% { transform: translateX(-60%); } 50% { transform: translateX(160%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
